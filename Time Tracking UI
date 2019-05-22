@@ -1,0 +1,70 @@
+/*
+----------------------------------------------README-------------------------------------------------------------
+NOT COMPLETE, still working on in free time. mainly focused on learning hashtable like data structure "associative array"
+
+TODO:
+make this compatable with graphs, that would be best visualization pie/bar
+----------------------------------------------README-------------------------------------------------------------
+*/
+
+
+function myFunction() {
+  chartUI();
+}
+
+
+
+function chartUI() {
+  var sheet = SpreadsheetApp.getActiveSheet();
+  var data = sheet.getDataRange().getValues();
+  
+  //creating an ASSOCIATIVE ARRAY that holds each task, not case sensitive // NOTE: associative arrays are indexed by the object string, rather than int, so its very akin to hashtable
+  var tasks = {};
+  
+  //Object.yourProperty = value;
+  var point = { x:3, y:2 };
+  
+  //EXAMPLES OF ACCESSING THE DATA
+      Logger.log(point["x"]); // returns 3
+  //point.y // returns 2
+  
+  
+  
+  for(var i = 0; i < data.length; i++ )
+  {
+      //get the task at that row
+      
+      //set to lowercase
+      
+      //calculate minutes for the task
+      
+      //check if already in the array, YES? increse the int associated with it by the minutes of that task
+      
+      //else add it to the array and set int of min on task
+  }
+  /*
+  var chart = Charts.newDataTable()
+  .addColumn(Charts.ColumnType.NUMBER, 'Minutes')
+  .addColumn(Charts.ColumnType.STRING, 'Task')
+  .addRow(['January', 10, 1])
+  .addRow(['February', 12, 1])
+  .addRow(['March', 20, 2])
+  .addRow(['April', 25, 3])
+  .addRow(['May', 30, 4])
+  .build();
+  
+  var chart = Charts.newAreaChart()
+  .setDataTable(data)
+  .setStacked()
+  .setRange(0, 40)
+  .setTitle('Sales per Month')
+  .build();
+  
+  var htmlOutput = HtmlService.createHtmlOutput().setTitle('My Chart');
+  var imageData = Utilities.base64Encode(chart.getAs('image/png').getBytes());
+  var imageUrl = "data:image/png;base64," + encodeURI(imageData);
+  htmlOutput.append("Render chart server side: <br/>");
+  htmlOutput.append("<img border=\"1\" src=\"" + imageUrl + "\">");
+  return htmlOutput;
+  */
+}
