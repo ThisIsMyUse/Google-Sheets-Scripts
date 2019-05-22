@@ -1,3 +1,21 @@
+/*
+-----------------------------------------------------README-----------------------------------------------------
+DESCRIPTION:
+Light script that auto enters the time a task was finished in google sheets.
+Triggered by editing any cell in the bottom most row.
+
+Use Case:
+type a completed task into column B and hit enter. 
+This will place the time of completion into the next row down, and signal the start of a new task
+
+HOW TO SET UP:
+- create a google sheet for time tracking
+- open TOOLS -> SCRIPT EDITOR
+- paste this entire file into the textbox
+- save the file
+----------------------------------------------------------------------------------------------------------------
+*/
+
 /**
  * The event handler triggered when editing the spreadsheet.
  * @param {Event} e The onEdit event.
@@ -19,9 +37,6 @@ function autoTimeComplete(){
 
   if(row == data.length)
   {
-    //calculate the minutes spent on the task just finished
-    
-    
     //set the next rows first cell to be the current time
     var date = new Date();
     sheet.getRange(row+1,1).setValue(date.toLocaleTimeString('en-US')); //(row, col) set start time to be the previous task end time
