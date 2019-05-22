@@ -1,0 +1,29 @@
+/**
+ * The event handler triggered when editing the spreadsheet.
+ * @param {Event} e The onEdit event.
+ */
+function onEdit(e) {
+  autoTimeComplete();
+}
+
+/*
+When the bottom row is edited, the current time is placed in the next row down in the A column
+*/
+function autoTimeComplete(){
+  var sheet = SpreadsheetApp.getActiveSheet();
+  var data = sheet.getDataRange().getValues();
+  
+  //get current selected cell
+  var row = sheet.getActiveCell().getRow();
+  var col = sheet.getActiveCell().getColumn(); ///Sanity check, not necissary if the user only accesses the task section
+
+  if(row == data.length)
+  {
+    //calculate the minutes spent on the task just finished
+    
+    
+    //set the next rows first cell to be the current time
+    var date = new Date();
+    sheet.getRange(row+1,1).setValue(date.toLocaleTimeString('en-US')); //(row, col) set start time to be the previous task end time
+  }
+}
